@@ -1,13 +1,14 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { SignInButton, SignOutButton, UserButton, auth } from '@clerk/nextjs'
+import Link from 'next/link'
 
 export default function Landing() {
   const { userId } = auth()
   return (
     <div className='flex items-center justify-center min-h-screen'>
 
-      <div className='w-1/2 h-96 grid grid-cols-3 gap-10'>
+      <div className='grid grid-cols-3 gap-5 flex flex-wrap'>
         <Card className='w-64 h-min shadow-lg'>
           <CardHeader className="p-2 pt-0 md:p-4">
             <CardTitle>Get Ignite</CardTitle>
@@ -34,6 +35,46 @@ export default function Landing() {
                 userId ?
                   <SignOutButton /> : <SignInButton />
               }
+            </Button>
+          </CardContent>
+        </Card>
+        <Card className='w-64 h-min shadow-lg'>
+          <CardHeader className="p-2 pt-0 md:p-4">
+            <CardTitle>shadcn/ui</CardTitle>
+            <CardDescription>
+              Includes shadcn/ui component library, along with TailwindCSS + sonner for toasts.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="p-2 pt-0 md:p-4 md:pt-0">
+            <Button size="sm" className="w-full">
+              <Link target='_blank' href="https://ui.shadcn.com/docs/components/accordion">View Components</Link>
+            </Button>
+          </CardContent>
+        </Card>
+        <Card className='w-64 h-min shadow-lg'>
+          <CardHeader className="p-2 pt-0 md:p-4">
+            <CardTitle>Billing</CardTitle>
+            <CardDescription>
+              Lemonsqueezy billing integration, including subscription management and invoices.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="p-2 pt-0 md:p-4 md:pt-0">
+            <Button size="sm" className="w-full">
+              <Link target='_blank' href="https://ui.shadcn.com/docs/components/accordion">View Components</Link>
+            </Button>
+          </CardContent>
+        </Card>
+        <Card className='w-64 h-min shadow-lg'>
+          <CardHeader className="p-2 pt-0 md:p-4">
+            <CardTitle>Serverless Postgres</CardTitle>
+            <CardDescription>
+              Ignite packs Neon Postgres as the serverless postgres database, with Prisma for ORM.
+              
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="p-2 pt-0 md:p-4 md:pt-0">
+            <Button size="sm" className="w-full">
+              <Link target='_blank' href="https://ui.shadcn.com/docs/components/accordion">View Components</Link>
             </Button>
           </CardContent>
         </Card>
