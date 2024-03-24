@@ -59,8 +59,8 @@ export default function Landing() {
             </CardDescription>
           </CardHeader>
           <CardContent className="p-2 pt-0 md:p-4 md:pt-0">
-            <Button size="sm" className="w-full">
-              <Link target='_blank' href="https://ui.shadcn.com/docs/components/accordion">View Components</Link>
+            <Button  size="sm" className="w-full">
+              View Components
             </Button>
           </CardContent>
         </Card>
