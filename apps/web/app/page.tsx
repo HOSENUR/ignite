@@ -1,10 +1,8 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { SignInButton, SignOutButton, UserButton, auth } from '@clerk/nextjs'
 import Link from 'next/link'
 
 export default function Landing() {
-  const { userId } = auth()
   return (
     <div className='flex items-center justify-center min-h-screen'>
 
@@ -31,10 +29,7 @@ export default function Landing() {
           </CardHeader>
           <CardContent className="p-2 pt-0 md:p-4 md:pt-0">
             <Button size="sm" className="w-full">
-              {
-                userId ?
-                  <SignOutButton /> : <SignInButton />
-              }
+              Hello
             </Button>
           </CardContent>
         </Card>

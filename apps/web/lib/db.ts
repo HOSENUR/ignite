@@ -1,5 +1,17 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from "@prisma/client"
+import "server-only";
 
-const prisma = new PrismaClient()
-// use `prisma` in your application to read and write data in your DB
-export default prisma
+declare global {
+  // eslint-disable-next-line no-var
+  var cachedPrisma: PrismaClient
+}
+
+export let prisma: PrismaClient
+if (process.env.NODE_ENV === "production") {
+  prisma = new PrismaClient()
+} else {
+  if (!global.cachedPrisma) {
+    global.cachedPrisma = new PrismaClient()
+  }
+  prisma = global.cachedPrisma
+}

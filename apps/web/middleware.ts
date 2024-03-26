@@ -1,24 +1,14 @@
-import { authMiddleware } from "@clerk/nextjs";
- 
-// See https://clerk.com/docs/references/nextjs/auth-middleware
-// for more information about configuring your Middleware
- 
-export default authMiddleware({
-  publicRoutes: ["/"],
-  // Allow signed out users to access the specified routes:
-  // publicRoutes: ['/anyone-can-visit-this-route'],
-  // Prevent the specified routes from accessing
-  // authentication information:
-  // ignoredRoutes: ['/'],
-});
- 
+export { auth as middleware } from "@/auth";
+
 export const config = {
   matcher: [
-    // Exclude files with a "." followed by an extension, which are typically static files.
-    // Exclude files in the _next directory, which are Next.js internals.
- 
-    "/((?!.+\\.[\\w]+$|_next).*)",
-    // Re-include any files in the api or trpc folders that might have an extension
-    "/(api|trpc)(.*)"
-  ]
+    /*
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     */
+    "/((?!api|_next/static|_next/image|favicon.ico).*)",
+  ],
 };
