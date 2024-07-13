@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@lucia-auth/adapter-prisma": "^4.0.1",
     "@repo/database": "workspace:*",
-    "@lucia-auth/adapter-prisma": "^4.0.1"
+    "lucia": "^3.2.0"
   }
 }
