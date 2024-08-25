@@ -3,6 +3,8 @@ import { CompleteSession, relatedSessionSchema } from "./index"
 
 export const userSchema = z.object({
   id: z.string(),
+  username: z.string(),
+  password: z.string(),
 })
 
 export interface CompleteUser extends z.infer<typeof userSchema> {

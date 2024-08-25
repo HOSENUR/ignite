@@ -6,13 +6,15 @@
     "db:push": "prisma db push --skip-generate"
   },
   "dependencies": {
-    "@prisma/client": "^5.18.0"
+    "@prisma/client": "^5.18.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "prisma": "^5.18.0",
     "zod-prisma": "^0.5.4"
   },
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./schemas": "./prisma/zod/index.ts"
   }
 }
