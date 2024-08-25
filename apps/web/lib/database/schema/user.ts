@@ -1,2 +1,5 @@
 import { userSchema } from '@repo/database/schemas'
-export const insertUserSchema = userSchema.omit({ id: true })
+import { z } from 'zod'
+export const insertUserSchema = userSchema.omit({ id: true }).extend({
+    password: z.string().min(8)
+})

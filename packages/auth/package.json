@@ -19,22 +19,8 @@
     "lucia": "^3.2.0"
   },
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
-    },
-    "./providers/github": {
-      "types": "./dist/providers/github.d.ts",
-      "default": "./dist/providers/github.js"
-    },
-    "./providers/google": {
-      "types": "./dist/providers/google.d.ts",
-      "default": "./dist/providers/google.js"
-    },
-    "./actions/logout": {
-      "types": "./dist/actions/logout.d.ts",
-      "default": "./dist/actions/logout.js"
-    }
+    ".": "./src/index.ts",
+    "./schemas": "./prisma/zod/index.ts"
   },
   "devDependencies": {
     "@repo/tsconfig": "workspace:*",
