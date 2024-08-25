@@ -1,13 +1,12 @@
 'use client'
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@repo/ui/components/ui/form'
-import React from 'react'
-import { useForm } from "react-hook-form"
-import { z } from "zod"
+import { register } from '@/actions/register-action'
 import { insertUserSchema } from '@/lib/database/schema/user'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Input } from '@repo/ui/components/ui/input'
 import { Button } from '@repo/ui/components/ui/button'
-import { logAction } from '@/actions/log-action'
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@repo/ui/components/ui/form'
+import { Input } from '@repo/ui/components/ui/input'
+import { useForm } from "react-hook-form"
+import { z } from "zod"
 
 
 export default function RegisterForm() {
@@ -19,8 +18,8 @@ export default function RegisterForm() {
     },
   })
 
-  const onSubmit = (data: z.infer<typeof insertUserSchema>) => {  
-    logAction({message: 'Registering user'})
+  const onSubmit = (data: z.infer<typeof insertUserSchema>) => {
+    register({ username: data.username, password: data.password })
   }
   return (
     <Form {...form}>
