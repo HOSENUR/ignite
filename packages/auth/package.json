@@ -8,5 +8,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@repo/database": "workspace:*",
+    "@lucia-auth/adapter-prisma": "^4.0.1"
+  }
 }
